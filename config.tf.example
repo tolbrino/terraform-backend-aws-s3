@@ -1,0 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "default-prod-terraform-state"
+    key    = "prod"
+
+    # Hosting in Frankfurt
+    region         = "eu-central-1"
+    dynamodb_table = "default-prod-terraform-state-locks"
+    encrypt        = true
+  }
+}
